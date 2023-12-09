@@ -1,22 +1,22 @@
-from sqlalchemy import creating_engine,Column,String,Integer,ForeignKey
+from sqalchemy import create_engine,Column,String,Integer,ForeignKey
 from sqlalchemy.orm import Session,declarative_base,relationship
 
 engine = creating_engine("sqlite:///Restaurant.db")
 Base = declarative_base
 
 class Review(Base):
-    __tablename__ = "reviews"
+    __tablename__ = "review"
     id = Column(Integer,primary_key = True)
-    name = Column(String)
+    review_made = Column(String)
 
 class Customer(Base):
-    __tablename__ = "customers"
+    __tablename__ = "customer"
     id = Column(Integer,primary_key = True)
     first_name = Column(String)
     last_name = Column(Integer)
 
 class Restaurant(Base):
-    __tablename__ = "restaurants"
+    __tablename__ = "restaurant"
     id = Column(Integer,primary_key = True)
     name = Column(String)
     price = Column(Integer)

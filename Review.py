@@ -12,10 +12,10 @@ class Restaurant(Base):
     name = Column(String)
     price = Column(Integer)
     R1 = Restaurant(name = "Doha",price = 45)
-    session.add([R1])
+    session.add(R1)
     session.commit()
 # Example for the Restaurant.   
-R1 = session.query(Restaurant).all
+R1 = session.query(Restaurant).all()
 print("Restaurant ID:", R1.id)
 print("Restaurant Name:", R1.name)
 print("Restaurant Price:$", R1.price)
@@ -38,7 +38,7 @@ class Customer(Base):
 class Review(Base):
     __tablename__ = "review"
     id = Column(Integer,primary_key = True)
-    name = Column(String)
+    review_made = Column(String)
     restaurant_id = Column(Integer, ForeignKey('restaurant.id'))
     customer_id = Column(Integer,ForeignKey("customer.id"))
 
